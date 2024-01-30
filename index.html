@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSVP</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <H1>RSVP Form</H1>
+        <p>Please take a few minutes to complete the form below</p>
+    </header>
+    <form action="" method="post">
+        <fieldset>
+            <label for="first-name">Enter Your First Name: <input id="first-name" name="first-name" type="text" required /></label>
+            <label for="email">Enter Your Email: <input id="email" name="email" type="email" required /></label>              
+        </fieldset>
+
+        <fieldset>
+            <legend>Attendance:</legend>
+                <label  for="yes"><input id="yes" name="attendance" class="inline" checked type="radio"> Yes, I will attend </label>
+                <label  for="no"><input id="no" name="attendance" class="inline" type="radio"> No, I cannot attend </label> 
+            </fieldset>    
+
+        <fieldset>
+            <legend>Food preferences:</legend>
+                <div class="checkboxes"><label class="inline" for="vegan"><input type="checkbox" id="vegan" id="vegan" class="inline"> Vegan</label></div>
+                <br>
+                <div class="checkboxes"><label class="inline" for="glutenFree"><input type="checkbox" id="glutenFree" id="glutenFree" class="inline"> Glutan Free </label></div>
+                <br>
+                <div class="checkboxes"><label class="inline" for="vegitarian"><input type="checkbox" id="vegitarian" id="vegitarian" class="inline"> Vegitatian</label></div>
+        </fieldset>
+
+        <button>Submit</button>
+    </form>
+    <section>
+        <div class="info-card hidden">
+            <div>Name: Kevin</div>
+            <div>Email: kevin@gmail.com</div>
+            <div>Attendance: Yes</div>
+            <div>Food: Vegitatian, Glutan Free, Vegan</div>
+        </div>
+    </section>
+    <form> 
+</body>
+</html>

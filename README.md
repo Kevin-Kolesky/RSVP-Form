@@ -6,7 +6,7 @@ HTML, CSS, and JavaScript.
 
 Requirements:
 1. HTML Structure:
- Create an HTML file that includes a header, a form for the RSVP, and a section to display
+√ Create an HTML file that includes a header, a form for the RSVP, and a section to display
 submitted values.
 
 2. CSS Styling:
@@ -16,10 +16,10 @@ submitted values.
 the form is submitted.
 
 3. RSVP Form:
- Design an RSVP form that includes fields for name, email, and attendance
+√ Design an RSVP form that includes fields for name, email, and attendance
 status.
- Add a radio button group for attendance status (e.g., "Yes, I will attend" and
+√ Add a radio button group for attendance status (e.g., "Yes, I will attend" and
 "No, I cannot attend").
- Include checkboxes for food options (e.g., vegetarian, vegan, gluten-free).
+√ Include checkboxes for food options (e.g., vegetarian, vegan, gluten-free).
  Use JavaScript to dynamically display submitted values on the same page.
  Implement form validation for required fields.

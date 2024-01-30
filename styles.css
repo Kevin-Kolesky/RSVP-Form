@@ -1,0 +1,93 @@
+body {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    background-color: #6db9cab3;
+    font-family: Tahoma;
+    font-size: 16px;
+  }
+
+h1, p {
+    margin: 1em auto;
+    text-align: center;
+  }
+  
+  label {
+    display: block;
+    margin: 0.5rem 0;
+  }
+
+  form {
+    width: 60vw;
+    max-width: 500px;
+    min-width: 300px;
+    margin: 0 auto;
+    padding-bottom: 2em;
+  }
+  
+  fieldset {
+    border: none;
+    padding: 2rem 0;
+    border-bottom: 3px solid #3b3b4f;
+  }
+
+  button{
+    display: block;
+    width: 60%;
+    margin: 1em auto;
+    height: 2em;
+    font-size: 1.1rem;
+    background-color: #0c3e50;
+    color: #ffffff;
+    border-color: 0a0a23;
+    min-width: 300px;
+  }
+
+  input{
+  margin: 10px 0 0 0;
+  width: 100%;
+  min-height: 2em;
+  background-color: #0c3e50;
+  border: 1px solid #0a0a23;
+  color: #ffffff;
+}
+
+.inline {
+    width: unset;
+    margin: 0 0.5em 0 0;
+    vertical-align: middle;
+    display: inline;
+  }
+
+
+.checkboxes{
+    padding-bottom: 2px;
+}
+
+.checkboxes input[type=checkbox]{
+    width: 20px;
+}
+
+input[type=radio]{
+    width: 20px;
+}
+
+.info-card{
+    display: flex;
+    border-radius: 15px;
+    background-color: azure;
+    width: 50%;
+    margin: auto;
+    align-content: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.info-card div{
+    padding: 5px;
+}
+
+.hidden{
+    display: none;
+}
