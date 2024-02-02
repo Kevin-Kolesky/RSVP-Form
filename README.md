@@ -10,9 +10,9 @@ Requirements:
 submitted values.
 
 2. CSS Styling:
- Style the form for a user-friendly layout.
- Apply appropriate spacing, colors, and fonts to enhance the visual appeal.
- Design the display section to be initially hidden and appear dynamically when
+√ Style the form for a user-friendly layout.
+√ Apply appropriate spacing, colors, and fonts to enhance the visual appeal.
+√ Design the display section to be initially hidden and appear dynamically when
 the form is submitted.
 
 3. RSVP Form:
@@ -21,5 +21,5 @@ status.
 √ Add a radio button group for attendance status (e.g., "Yes, I will attend" and
 "No, I cannot attend").
 √ Include checkboxes for food options (e.g., vegetarian, vegan, gluten-free).
- Use JavaScript to dynamically display submitted values on the same page.
- Implement form validation for required fields.
+√ Use JavaScript to dynamically display submitted values on the same page.
+√ Implement form validation for required fields.
