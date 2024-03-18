@@ -88,6 +88,6 @@ input[type=radio]{
     padding: 5px;
 }
 
-.hidden{
-    display: none;
+section{
+  margin-bottom: 10px;
 }

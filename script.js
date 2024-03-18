@@ -36,7 +36,6 @@ function checkbox(){
 
     function submitForm(){
         if (validateForm()){
-        card.classList.remove("hidden");
         var $name = document.getElementById("firstname");
         var $email = document.getElementById("email");
 
@@ -46,52 +45,20 @@ function checkbox(){
         {
             var $Attend = document.getElementById("no");
         }
-         
-        outName.innerHTML = "Name:" + $name.value;
-        outEmail.innerHTML = "Email:" + $email.value;
-        outAttend.innerHTML = "Attendance:" + $Attend.value;
-        outFood.innerHTML = "Food: "+ checkbox();
-        }
+
+        const HTMLString = `
+        <section>
+            <div class="info-card">
+                <div >Name: ${$name.value}</div>
+                <div >Email: ${$email.value}</div>
+                <div >Attendance: ${$Attend.value}</div>
+                <div >Food: ${checkbox()}</div>
+            </div>
+        </section>
+        `;
+        const body = document.querySelector('#body');
+        body.insertAdjacentHTML('beforeend', HTMLString);
+        document.RSVP_Form.reset();
     }
-    
+}
     btnSubmit.addEventListener('click',submitForm);
-
-/*
-var $Food;
-
-function getFood(){
-    $Food = " ";
-    var $Food1 = document.getElementById("vegan");
-    var $Food2 = document.getElementById("glutenFree");
-    var $Food3 = document.getElementById("vegitarian");
-    
-    if ($Food1.checked){
-        if ($Food = " "){
-            $Food = $Food1.value;
-        }else
-            $Food = $Food + ', ' + $Food1.value;
-        }
-
-        if ($Food2.checked){
-            if ($Food = " "){
-                $Food = $Food2.value;
-            }else
-            $Food = $Food + ', ' + $Food2.value;
-        }
-        
-        if ($Food3.checked){
-            if ($Food = " "){
-                $Food = $Food3.value;
-            }else
-            $Food = $Food + ', ' + $Food3.value;
-            }
-            console.log("Food = " + $Food);
-        return $Food;
-
-
-        if ($Food != " "){
-            outFood.innerHTML = "Food: " + getFood();
-        }else
-            outFood.innerHTML = "Food: -";    
-        }
-*/
