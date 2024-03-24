@@ -46,19 +46,54 @@ function checkbox(){
             var $Attend = document.getElementById("no");
         }
 
-        const HTMLString = `
-        <section>
+       //localStorage.clear();
+        let entries = parseInt(localStorage.getItem('entries'));
+        let arrEntries = JSON.parse(localStorage.getItem('arrEntries'));
+       
+        console.log(entries);
+        console.log(arrEntries);
+        if (entries && arrEntries){ 
+            entries++;
+            localStorage.setItem('entries', entries);
+            entries = localStorage.getItem('entries');
+
+            arrEntries.push({
+                username: $name.value ,
+                email: $email.value,
+                attend:  $Attend.value ,
+                checkbox: checkbox()
+                });
+            localStorage.setItem('arrEntries', JSON.stringify(arrEntries));
+            arrEntries = JSON.parse(localStorage.getItem('arrEntries'));
+        }else{
+            let entries = 1;
+            localStorage.setItem('entries', entries);
+
+            let arrEntries = [{
+                username: $name.value ,
+                email: $email.value,
+                attend:  $Attend.value ,
+                checkbox: checkbox()
+                }
+            ];
+            localStorage.setItem('arrEntries', JSON.stringify(arrEntries));   
+        }
+        
+        for (i=0; i<entries; i++){
+            let HTMLString = `
+            <section>
             <div class="info-card">
-                <div >Name: ${$name.value}</div>
-                <div >Email: ${$email.value}</div>
-                <div >Attendance: ${$Attend.value}</div>
-                <div >Food: ${checkbox()}</div>
+                <div >Name: ${arrEntries[i].username}</div>
+                <div >Email: ${arrEntries[i].email}</div>
+                <div >Attendance: ${arrEntries[i].attend}</div>
+                <div >Food: ${arrEntries[i].checkbox}</div>
             </div>
-        </section>
-        `;
-        const body = document.querySelector('#body');
-        body.insertAdjacentHTML('beforeend', HTMLString);
-        document.RSVP_Form.reset();
+            </section>
+            `; 
+            const body = document.querySelector('#body');
+            body.insertAdjacentHTML('beforeend', HTMLString);
+            document.RSVP_Form.reset();
+        }
     }
 }
     btnSubmit.addEventListener('click',submitForm);
