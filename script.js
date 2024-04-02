@@ -2,6 +2,7 @@ const outName = document.getElementById("outName");
 const outEmail = document.getElementById("outEmail");
 const outAttend = document.getElementById("outAttend");
 const outFood = document.getElementById("outFood");
+const btnSubmit = document.getElementById("btnSubmit");
 
 function validateForm() {
     if( document.RSVP_Form.first_name.value == "" ) {
@@ -90,7 +91,7 @@ function checkbox(){
             </div>
             </section>
             `; 
-            const body = document.querySelector('#body');
+            const body = document.querySelector('#container');
             body.insertAdjacentHTML('beforeend', HTMLString);
             document.RSVP_Form.reset();
         }

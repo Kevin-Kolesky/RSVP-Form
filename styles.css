@@ -76,12 +76,12 @@ input[type=radio]{
     display: flex;
     border-radius: 15px;
     background-color: azure;
-    width: 50%;
     margin: auto;
     align-content: flex-start;
     flex-direction: column;
     flex-wrap: wrap;
     padding: 10px;
+
 }
 
 .info-card div{
@@ -90,4 +90,17 @@ input[type=radio]{
 
 section{
   margin-bottom: 10px;
+  width: 100%;
+}
+
+#container{
+  padding-top: 25px;
+  display: flex;
+  margin: auto;
+  align-content: flex-start;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  max-width: 500px;
 }
