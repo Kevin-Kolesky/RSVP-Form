@@ -1,100 +1,77 @@
-const outName = document.getElementById("outName");
-const outEmail = document.getElementById("outEmail");
-const outAttend = document.getElementById("outAttend");
-const outFood = document.getElementById("outFood");
 const btnSubmit = document.getElementById("btnSubmit");
+let guests = JSON.parse(localStorage.getItem('guests')) || [];
+
+function submitForm() {
+    if (validateForm()) {
+        let $name = document.getElementById("firstname").value;
+        let $email = document.getElementById("email").value;
+        let $attend; //Have to declare it here, let uses block scope
+
+        if (document.getElementById("yes").checked) {
+            $attend = "Yes";
+        } else {
+            $attend = "No";
+        }
+            
+        guests.push({name: $name,
+                    email: $email,
+                    attend: $attend,
+                    food: checkbox()
+                });
+            localStorage.setItem('guests', JSON.stringify(guests));
+            displayCards();
+        }
+    }
+
+function displayCards(){
+    const container = document.getElementById("container");
+    container.innerHTML = '';
+    guests.forEach((guest) => {
+        let HTMLString = `
+        <section>
+        <div class="info-card">
+            <div >Name: ${guest.name}</div>
+            <div >Email: ${guest.email}</div>
+            <div >Attendance: ${guest.attend}</div>
+            <div >Food: ${guest.food}</div>
+        </div>
+        </section>
+        `;
+        container.insertAdjacentHTML('beforeend', HTMLString);
+    })
+    document.RSVP_Form.reset();
+}
+
+btnSubmit.addEventListener('click', submitForm);
+// Display items when the page loads
+window.addEventListener('load', displayCards);
 
 function validateForm() {
-    if( document.RSVP_Form.first_name.value == "" ) {
-        alert( "Please provide your name!" );
-        document.RSVP_Form.first_name.focus() ;
+    if (document.RSVP_Form.first_name.value == "") {
+        alert("Please provide your name!");
+        document.RSVP_Form.first_name.focus();
         return false;
-     }
-     if( document.RSVP_Form.email.value == "" ) {
-        alert( "Please provide your Email!" );
-        document.RSVP_Form.email.focus() ;
+    }
+    if (document.RSVP_Form.email.value == "") {
+        alert("Please provide your Email!");
+        document.RSVP_Form.email.focus();
         return false;
-     }  
-    return true ;
- }
+    }
+    return true;
+}
 
-function checkbox(){
-    let checkboxes = document.querySelectorAll('input[type="checkbox"]'); 
+function checkbox() {
+    let checkboxes = document.querySelectorAll('input[type="checkbox"]');
     let selectedValues = [];
     checkboxes.forEach(checkbox => {
         if (checkbox.checked) {
-            selectedValues.push(checkbox.value); 
-            } 
-        });
+            selectedValues.push(checkbox.value);
+        }
+    });
     let resultString = selectedValues.join(', ');
-    if (resultString != ''){
+    if (resultString != '') {
         return resultString;
-    }else{
+    } else {
         return '-'
     }
-    
 }
-
-    function submitForm(){
-        if (validateForm()){
-        var $name = document.getElementById("firstname");
-        var $email = document.getElementById("email");
-
-        if (document.getElementById("yes").checked){
-            var $Attend = document.getElementById("yes");
-        } else
-        {
-            var $Attend = document.getElementById("no");
-        }
-
-       //localStorage.clear();
-        let entries = parseInt(localStorage.getItem('entries'));
-        let arrEntries = JSON.parse(localStorage.getItem('arrEntries'));
-       
-        console.log(entries);
-        console.log(arrEntries);
-        if (entries && arrEntries){ 
-            entries++;
-            localStorage.setItem('entries', entries);
-            entries = localStorage.getItem('entries');
-
-            arrEntries.push({
-                username: $name.value ,
-                email: $email.value,
-                attend:  $Attend.value ,
-                checkbox: checkbox()
-                });
-            localStorage.setItem('arrEntries', JSON.stringify(arrEntries));
-            arrEntries = JSON.parse(localStorage.getItem('arrEntries'));
-        }else{
-            let entries = 1;
-            localStorage.setItem('entries', entries);
-
-            let arrEntries = [{
-                username: $name.value ,
-                email: $email.value,
-                attend:  $Attend.value ,
-                checkbox: checkbox()
-                }
-            ];
-            localStorage.setItem('arrEntries', JSON.stringify(arrEntries));   
-        }
-        
-        for (i=0; i<entries; i++){
-            let HTMLString = `
-            <section>
-            <div class="info-card">
-                <div >Name: ${arrEntries[i].username}</div>
-                <div >Email: ${arrEntries[i].email}</div>
-                <div >Attendance: ${arrEntries[i].attend}</div>
-                <div >Food: ${arrEntries[i].checkbox}</div>
-            </div>
-            </section>
-            `; 
-            const body = document.querySelector('#container');
-            body.insertAdjacentHTML('beforeend', HTMLString);
-            document.RSVP_Form.reset();
-        }
-    }
-}
-    btnSubmit.addEventListener('click',submitForm);
